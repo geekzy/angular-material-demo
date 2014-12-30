@@ -1,0 +1,15 @@
+{
+    "name": "angular-material-demo",
+    "private": true,
+    "version": "0.0.1",
+    "description": "Material Design Showcase with AngularJS",
+    "devDependencies": {
+        "http-server": "^0.6.1",
+        "bower": "^1.3.1"
+    },
+    "scripts": {
+        "postinstall": "bower install",
+        "prestart": "npm install",
+        "start": "http-server -a localhost -p 8888 -c-1"
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "angular-material-demo",
+  "version": "0.0.1",
+  "authors": [
+    "Ade Imam Kurniawan <geekzy@gmail.com>"
+  ],
+  "description": "Material Design Showcase with AngularJS",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "angular",
+    "material",
+    "template"
+  ],
+  "license": "MIT",
+  "homepage": "http://dev.geekzy.net/angularjs",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.6.1"
+  }
+}

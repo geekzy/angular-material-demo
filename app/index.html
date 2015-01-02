@@ -3,23 +3,13 @@
 <head>
     <title>Angular with Material Design</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-
-    <!-- dependecies -->
     <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.css">
-    <script type="text/javascript" src="lib/angular/angular.js"></script>
-    <script type="text/javascript" src="lib/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
-    <script type="text/javascript" src="lib/hammerjs/hammer.js"></script>
-    <script type="text/javascript" src="lib/angular-material/angular-material.js"></script>
 
-    <!-- app scripts -->
+    <!-- app styles -->
     <style type="text/css"></style>
-    <script type="text/javascript">
-        var app = angular.module('AngMat', ['ngMaterial']);
-    </script>
 </head>
 <body ng-app="AngMat">
-    <div layout="column" layout-fill>
+    <div layout="column" layout-fill ng-controller="MainController">
         <section layout="row" flex>
             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
                 <md-toolbar><h1 class="md-toolbar-tools"><span>Title</span></h1></md-toolbar>
@@ -32,11 +22,34 @@
                 <div layout="column">
                     <md-toolbar><h2 class="md-toolbar-tools"><span>Toolbar</span></h2></md-toolbar>
                     <md-content class="md-padding">
-                        <p>Main content goes here</p>
+                        <section layout="row" layout-sm="column" layout-align="center center">
+                            <md-button class="md-raised md-accent">{{title}}</md-button>
+                        </section>
                     </md-content>
                 </div>
             </md-content>
         </section>
     </div>
+
+    <!-- dependecies -->
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/hammerjs/hammer.js"></script>
+    <script type="text/javascript" src="lib/angular-material/angular-material.js"></script>
+
+    <!-- app scripts -->
+    <script type="text/javascript">
+        var app = angular.module('AngMat', ['ngMaterial']);
+        app.config(['$mdThemingProvider', function($mdThemingProvider) {
+            $mdThemingProvider.theme('default')
+                .primaryColor('amber')
+                .accentColor('brown');
+        }]);
+
+        app.controller('MainController', ['$scope', function($scope) {
+            $scope.title = 'Test Button';
+        }]);
+    </script>
 </body>
 </html>

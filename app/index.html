@@ -4,6 +4,7 @@
     <title>Angular with Material Design</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="icons/font-awesome-4.2.0/css/font-awesome.css">
 
     <!-- app styles -->
     <style type="text/css"></style>
@@ -22,8 +23,8 @@
                 <div layout="column">
                     <md-toolbar><h2 class="md-toolbar-tools"><span>Toolbar</span></h2></md-toolbar>
                     <md-content class="md-padding">
-                        <section layout="row" layout-sm="column" layout-align="center center">
-                            <md-button class="md-raised md-accent">{{title}}</md-button>
+                        <section layout="row" layout-sm="column" layout-align="start start">
+                            <md-button class="md-raised md-accent" ng-click="showBottomSheet()">{{title}}</md-button>
                         </section>
                     </md-content>
                 </div>
@@ -47,8 +48,14 @@
                 .accentColor('brown');
         }]);
 
-        app.controller('MainController', ['$scope', function($scope) {
-            $scope.title = 'Test Button';
+        app.controller('MainController', ['$scope', '$mdBottomSheet', function($scope, $mdBottomSheet) {
+            $scope.title = 'Show Bottom Sheet';
+            $scope.showBottomSheet = function($event) {
+                $mdBottomSheet.show({
+                    templateUrl: 'partials/bottom-sheet.html',
+                    targetEvent: $event
+                });
+            };
         }]);
     </script>
 </body>

@@ -25,6 +25,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "~0.6.1"
+    "angular-material": "master"
   }
 }

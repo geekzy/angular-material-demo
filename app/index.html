@@ -4,16 +4,19 @@
     <title>Angular with Material Design</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.css">
-    <link rel="stylesheet" type="text/css" href="icons/font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="module/icons/font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="module/css/app.css">
 
-    <!-- app styles -->
+    <!-- custom dev app styles -->
     <style type="text/css"></style>
 </head>
-<body ng-app="AngMat">
+<body ng-app="WebApp" ng-cloak>
     <div layout="column" layout-fill ng-controller="MainController">
         <section layout="row" flex>
             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
-                <md-toolbar><h1 class="md-toolbar-tools"><span>Title</span></h1></md-toolbar>
+                <md-toolbar class="sidenav-toolbar">
+                    <div class="md-toolbar-tools"><span>Title</span></div>
+                </md-toolbar>
                 <md-content class="md-padding">
                     <p>Sidenav Items</p>
                 </md-content>
@@ -21,10 +24,37 @@
 
             <md-content layout-fill>
                 <div layout="column">
-                    <md-toolbar><h2 class="md-toolbar-tools"><span>Toolbar</span></h2></md-toolbar>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <md-button hide-gt-md ng-click="showMenu()" aria-label="{{label.showMenu}}">
+                                <i class="fa fa-bars fa-2x"></i>
+                                <md-tooltip>{{label.showMenu}}</md-tooltip>
+                            </md-button>
+                            <span>Toolbar</span>
+                            <div flex></div>
+                            <md-button class="md-fab md-accent" aria-label="{{label.deviceInfo}}">
+                                <i class="fa fa-mobile-phone fa-3x"></i>
+                                <md-tooltip>{{label.deviceInfo}}</md-tooltip>
+                            </md-button>
+                        </div>
+                        <md-tabs class="md-accent" md-selected="data.selectedIndex">
+                            <md-tab id="tab1" aria-controls="tab1-content" aria-label="{{label.chats}}">
+                                <i class="fa fa-comments fa-2x"></i>
+                                <md-tooltip>{{label.chats}}</md-tooltip>
+                            </md-tab>
+                            <md-tab id="tab2" aria-controls="tab2-content" aria-label="{{label.contacts}}">
+                                <i class="fa fa-user fa-2x"></i>
+                                <md-tooltip>{{label.contacts}}</md-tooltip>
+                            </md-tab>
+                            <md-tab id="tab3" aria-controls="tab3-content" aria-label="{{label.settings}}">
+                                <i class="fa fa-cogs fa-2x"></i>
+                                <md-tooltip>{{label.settings}}</md-tooltip>
+                            </md-tab>
+                        </md-tabs>
+                    </md-toolbar>
                     <md-content class="md-padding">
                         <section layout="row" layout-sm="column" layout-align="start start">
-                            <md-button class="md-raised md-accent" ng-click="showBottomSheet()">{{title}}</md-button>
+                            <md-button class="md-raised md-accent" ng-click="showBottomSheet()" aria-label="{{title}}">{{title}}</md-button>
                         </section>
                     </md-content>
                 </div>
@@ -38,25 +68,9 @@
     <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="lib/hammerjs/hammer.js"></script>
     <script type="text/javascript" src="lib/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="module/js/app.js"></script>
 
-    <!-- app scripts -->
-    <script type="text/javascript">
-        var app = angular.module('AngMat', ['ngMaterial']);
-        app.config(['$mdThemingProvider', function($mdThemingProvider) {
-            $mdThemingProvider.theme('default')
-                .primaryColor('amber')
-                .accentColor('brown');
-        }]);
-
-        app.controller('MainController', ['$scope', '$mdBottomSheet', function($scope, $mdBottomSheet) {
-            $scope.title = 'Show Bottom Sheet';
-            $scope.showBottomSheet = function($event) {
-                $mdBottomSheet.show({
-                    templateUrl: 'partials/bottom-sheet.html',
-                    targetEvent: $event
-                });
-            };
-        }]);
-    </script>
+    <!-- custom dev app scripts -->
+    <script type="text/javascript"></script>
 </body>
 </html>

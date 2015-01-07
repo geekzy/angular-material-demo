@@ -30,31 +30,33 @@
                                 <i class="fa fa-bars fa-2x"></i>
                                 <md-tooltip>{{label.showMenu}}</md-tooltip>
                             </md-button>
-                            <span>Toolbar</span>
+                            <span>{{activeTab || 'Toolbar'}}</span>
                             <div flex></div>
-                            <md-button class="md-fab md-accent" aria-label="{{label.deviceInfo}}">
-                                <i class="fa fa-mobile-phone fa-3x"></i>
-                                <md-tooltip>{{label.deviceInfo}}</md-tooltip>
+                            <md-button class="md-fab md-accent smaller-fab" aria-label="{{label.userInfo}}">
+                                <i class="fa fa-user fa-2x"></i>
+                                <md-tooltip>{{label.userInfo}}</md-tooltip>
                             </md-button>
                         </div>
-                        <md-tabs class="md-accent" md-selected="data.selectedIndex">
-                            <md-tab id="tab1" aria-controls="tab1-content" aria-label="{{label.chats}}">
-                                <i class="fa fa-comments fa-2x"></i>
-                                <md-tooltip>{{label.chats}}</md-tooltip>
+                        <md-tabs class="md-accent" md-selected="mainTab.selectedIndex">
+                            <md-tab id="tab1" aria-controls="tab1-content" aria-label="{{label.tabOne}}" ng-cloak>
+                                <i class="fa fa-comments-o fa-2x"></i>
+                                <md-tooltip>{{label.tabOne}}</md-tooltip>
                             </md-tab>
-                            <md-tab id="tab2" aria-controls="tab2-content" aria-label="{{label.contacts}}">
-                                <i class="fa fa-user fa-2x"></i>
-                                <md-tooltip>{{label.contacts}}</md-tooltip>
+                            <md-tab id="tab2" aria-controls="tab2-content" aria-label="{{label.tabTwo}}" ng-cloak>
+                                <i class="fa fa-download fa-2x"></i>
+                                <md-tooltip>{{label.tabTwo}}</md-tooltip>
                             </md-tab>
-                            <md-tab id="tab3" aria-controls="tab3-content" aria-label="{{label.settings}}">
-                                <i class="fa fa-cogs fa-2x"></i>
-                                <md-tooltip>{{label.settings}}</md-tooltip>
+                            <md-tab id="tab3" aria-controls="tab3-content" aria-label="{{label.tabThree}}" ng-cloak>
+                                <i class="fa fa-gears fa-2x"></i>
+                                <md-tooltip>{{label.tabThree}}</md-tooltip>
                             </md-tab>
                         </md-tabs>
                     </md-toolbar>
                     <md-content class="md-padding">
                         <section layout="row" layout-sm="column" layout-align="start start">
-                            <md-button class="md-raised md-accent" ng-click="showBottomSheet()" aria-label="{{title}}">{{title}}</md-button>
+                            <md-button class="md-raised md-accent"
+                                ng-click="showBottomSheet()"
+                                aria-label="{{label.showCtxMenu}}">{{label.showCtxMenu}}</md-button>
                         </section>
                     </md-content>
                 </div>

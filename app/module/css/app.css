@@ -2,3 +2,7 @@
     height: 112px;
     min-height: 112px;
 }
+.md-button.md-fab.smaller-fab {
+    width: 48px;
+    height: 48px;
+}
